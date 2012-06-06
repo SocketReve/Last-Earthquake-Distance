@@ -21,7 +21,7 @@ lonHome = 9.68  # Universita degli Studi di Milano - Crema
 # update every:
 timeUpdate = 60 #seconds. twitter: "Clients may not make more than 150 requests per hour."
 
-def distance_on_unit_sphere(lat1, long1, lat2, long2):
+def distanceOnUnitSphere(lat1, long1, lat2, long2):
     degrees_to_radians = math.pi/180.0
     phi1 = (90.0 - lat1)*degrees_to_radians
     phi2 = (90.0 - lat2)*degrees_to_radians
@@ -78,7 +78,7 @@ def readEarthquake():
                                 lastDate = textNode.nodeValue
                                 # define the action ... only print in this case
                                 sendNotification = True
-##                              print textNode.nodeValue
+	                            #print textNode.nodeValue
 
                 # Find the tweet tag.
                 elif tweetParts.nodeName == "text":
@@ -106,9 +106,9 @@ def readEarthquake():
         if sendNotification == True:
             sendNotification = False
             print ("Ora: "+str(earthQuakeInfo["ora"]))
-            print ("Distanza: "+str(distance_on_unit_sphere(float(earthQuakeInfo["lat"]),float(earthQuakeInfo["lon"]),latHome,lonHome)))
+            print ("Distanza: "+str(distanceOnUnitSphere(float(earthQuakeInfo["lat"]),float(earthQuakeInfo["lon"]),latHome,lonHome)))
 
         time.sleep(timeUpdate)
 
 if __name__ == '__main__':
-    readEarthquake()
+    readEarthquake() 

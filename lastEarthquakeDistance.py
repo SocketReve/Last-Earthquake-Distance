@@ -83,19 +83,19 @@ def readEarthquake():
                 # Find the tweet tag.
                 elif tweetParts.nodeName == "text":
                     for textNode in tweetParts.childNodes:
-        	  	        # Find the contents of the tweet tag.
+					# Find the contents of the tweet tag.
                         if textNode.nodeType == textNode.TEXT_NODE:
-        					#trovo posizione:
+							#trovo posizione:
 
-        					# -- latitudine
+							# -- latitudine
                             latPosition = textNode.nodeValue.rfind("Lat")
                             earthQuakeInfo["lat"] = textNode.nodeValue[latPosition+4:latPosition+9]
 
-        					# -- longitudine
+							# -- longitudine
                             lonPosition = textNode.nodeValue.rfind("Lon")
                             earthQuakeInfo["lon"] = textNode.nodeValue[lonPosition+4:lonPosition+9]
 
-        					# -- ora:
+							# -- ora:
                             oraPosition = textNode.nodeValue.rfind("UTC")
                             earthQuakeInfo["ora"] = textNode.nodeValue[oraPosition-9:oraPosition-1]
 
